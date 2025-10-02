@@ -1,0 +1,1 @@
+typeSearchIndex = [{"p":"Model.Interfaces","l":"InterfCRUD"}]
