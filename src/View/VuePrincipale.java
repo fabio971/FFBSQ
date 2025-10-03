@@ -246,11 +246,11 @@ public class VuePrincipale extends JFrame
 			this.controler.disconnect();
 			dispose();
 		}
-		else if (e.getActionCommand().equals("Option 11"))
+		else if (e.getActionCommand().equals("Créer empl."))
 		{
 			new Test(null, 
 			         new Dimension(300, 130), 
-			         "Test", 
+			         "Création d'un employé", 
 			         true, 
 			         this.controler);
 		}
