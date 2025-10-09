@@ -18,6 +18,7 @@ import org.xml.sax.SAXException;
 
 import Controler.Controleur;
 import Model.Classes.Autres.XML_POJO;
+import Model.Classes.Metiers.TypeEmploye;
 
 
 /*
@@ -153,11 +154,10 @@ public abstract class AbstractVuePersonnalisable extends JDialog
 		{
 			while (source.next())
 			{
-				/*if (classeMetier instanceof Instrument)
-					list.add(new Instrument(source.getString("libelle_instrument")));
-				else if (classeMetier instanceof Utilisateur)
-					list.add(new Utilisateur(source.getString("nom"),
-							                 source.getString("prenom")));*/
+				if (classeMetier instanceof TypeEmploye)
+					list.add(new TypeEmploye(source.getInt("id_type_employe"),
+											 source.getString("libelle_type_employe")));
+				
 			}
 				
 		} catch (SQLException e) {
@@ -169,10 +169,8 @@ public abstract class AbstractVuePersonnalisable extends JDialog
 		
 		for (int i = 0; i < taille; i++)
 		{
-			/*if (classeMetier instanceof Instrument)
-				destination.addItem( ((Instrument) list.get(i)).getLibelle_instrument() );
-			else if (classeMetier instanceof Utilisateur)
-				destination.addItem( ((Utilisateur) list.get(i)).getNom() + ", " + ((Utilisateur) list.get(i)).getPrenom() );*/
+			if (classeMetier instanceof TypeEmploye)
+				destination.addItem( ((TypeEmploye) list.get(i)).getLibelle_type_employe() );
 		}
 	}
 	

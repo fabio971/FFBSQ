@@ -9,13 +9,17 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 
 import Model.Classes.Abstracts.AbstractModel;
+import Model.Classes.Metiers.Employe;
 import Model.Classes.Metiers.Options;
 import Model.Classes.Metiers.Resultat;
+import Model.Classes.Metiers.TypeEmploye;
 import Model.Classes.Metiers.Utilisateur;
 import Model.Classes.Systeme.ConfigurationDB;
 import Model.Classes.Systeme.Option;
 import Model.Classes.Systeme.Session;
+import Model.DAO.EmployeDAO;
 import Model.DAO.OptionsDAO;
+import Model.DAO.TypeEmployeDAO;
 import Model.DAO.UtilisateurDAO;
 import Model.Interfaces.Observer.InterfObservateur;
 
@@ -109,7 +113,7 @@ public class Modele extends AbstractModel {
 	@Override
 	public String getPseudoSession() {
 		// TODO Auto-generated method stub
-		return this.session.getUser().getPseudo().toUpperCase();
+		return this.session.getUser().getPseudo_utilisateur().toUpperCase();
 	}
 
 	@Override
@@ -188,10 +192,14 @@ public class Modele extends AbstractModel {
 	
 	private void setManagerDAOCorresponds(Object obj)
 	{
-		if (obj instanceof Utilisateur)
+		if (obj instanceof Employe)
+			this.managerDAO = new EmployeDAO(this.session.getConnDBSession());
+		else if (obj instanceof Utilisateur)
 			this.managerDAO = new UtilisateurDAO(this.session.getConnDBSession());
 		else if (obj instanceof Options)
 			this.managerDAO = new OptionsDAO(this.session.getConnDBSession());
+		else if (obj instanceof TypeEmploye)
+			this.managerDAO = new TypeEmployeDAO(this.session.getConnDBSession());
 	}
 
 	@Override
