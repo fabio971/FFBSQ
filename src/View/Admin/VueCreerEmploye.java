@@ -93,7 +93,7 @@ public class VueCreerEmploye extends AbstractVuePersonnalisable {
 				{
 					JOptionPane.showMessageDialog(this, 
 												  "L'employé " + this.jtf_pseudo_utilisateur.getText().toUpperCase() + " a été bien enresgistré dans la base de données !",
-												  "INFO",
+												  "INFORMATION",
 												  JOptionPane.INFORMATION_MESSAGE);
 					this.viderFormulaire();
 				}
@@ -106,13 +106,13 @@ public class VueCreerEmploye extends AbstractVuePersonnalisable {
 			else
 				JOptionPane.showMessageDialog(this, 
 											  "Le mot de passe et sa confirmation doivent être identiquess !",
-											  "INFO",
+											  "INFORMATION",
 											  JOptionPane.INFORMATION_MESSAGE);
 		}
 		else
 			JOptionPane.showMessageDialog(this, 
 										  "Tous les champs doivent être saisis !",
-										  "INFO",
+										  "INFORMATION",
 										  JOptionPane.INFORMATION_MESSAGE);
 	}
 

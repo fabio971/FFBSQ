@@ -24,6 +24,7 @@ public class Employe extends Utilisateur {
 	}
 
 	public Employe() {
+		super();
 		// TODO Auto-generated constructor stub
 		this.type_employe = "";
 	}

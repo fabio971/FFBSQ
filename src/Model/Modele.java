@@ -173,7 +173,8 @@ public class Modele extends AbstractModel {
 	@Override
 	public Resultat deletefrom(Object obj) {
 		// TODO Auto-generated method stub
-		return null;
+		this.setManagerDAOCorresponds(obj);
+		return this.managerDAO.deletefrom(obj);
 	}
 
 	@Override
@@ -187,7 +188,7 @@ public class Modele extends AbstractModel {
 	public Resultat select(Object obj) {
 		// TODO Auto-generated method stub
 		this.setManagerDAOCorresponds(obj);
-		return this.managerDAO.select(null);
+		return this.managerDAO.select(obj);
 	}
 	
 	private void setManagerDAOCorresponds(Object obj)
