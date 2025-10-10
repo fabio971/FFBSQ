@@ -46,8 +46,8 @@ public class SystemeDAO implements InterfOperationsDataBase {
 	{
 		String requete = "select pseudo_utilisateur "
 				   + "from UTILISATEUR "
-				   + "where pseudo_utilisateur = '" + user.getPseudo().toUpperCase() + "' and "
-				   + "mdp_utilisateur = '" + user.getMot_de_passe() + "'";
+				   + "where pseudo_utilisateur = '" + user.getPseudo_utilisateur().toUpperCase() + "' and "
+				   + "mdp_utilisateur = '" + user.getMdp_utilisateur() + "'";
 		
 		PreparedStatement prepare = null;
 		
@@ -65,7 +65,7 @@ public class SystemeDAO implements InterfOperationsDataBase {
 		ResultSet reponse = prepare.executeQuery();
 	
 		if (reponse.first())
-			return reponse.getString(1).trim().equals(user.getPseudo().toUpperCase());
+			return reponse.getString(1).trim().equals(user.getPseudo_utilisateur().toUpperCase());
 		
 		return false;
 	}
@@ -102,7 +102,7 @@ public class SystemeDAO implements InterfOperationsDataBase {
 					   				+ "from avoir_acces A "
 					   				+ "inner join UTILISATEUR U on U.id_utilisateur = A.id_utilisateur "
 					   				+ "inner join OPTION O on O.id_option = A.id_option "
-					   				+ "where pseudo_utilisateur = '" + user.getPseudo() + "') as OPTIONS_PSEUDO "
+					   				+ "where pseudo_utilisateur = '" + user.getPseudo_utilisateur() + "') as OPTIONS_PSEUDO "
 					   		+ "inner join comporte C on C.id_option_o = OPTIONS_PSEUDO.id_option "
 					   		+ "order by id_menu) as IDMIDOPLOPP "
 					   + "inner join OPTION O1 on O1.id_option = IDMIDOPLOPP.id_menu";

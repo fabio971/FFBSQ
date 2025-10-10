@@ -152,7 +152,7 @@ public class UtilisateurDAO extends AbstractCRUD
 				{
 					requete = getRequeteComplet("autoriser_option_commercial",
 												ldroits_anciens_utilisateur.get(i).toString(),
-												employe.getPseudo());
+												employe.getPseudo_utilisateur());
 					this.setRequete(requete);
 					this.prepare();
 					this.execute();
@@ -160,7 +160,7 @@ public class UtilisateurDAO extends AbstractCRUD
 					
 					requete = getRequeteComplet("autoriser_option_demenagement",
 												ldroits_anciens_utilisateur.get(i).toString(),
-												employe.getPseudo());
+												employe.getPseudo_utilisateur());
 					this.setRequete(requete);
 					this.prepare();
 					this.execute();
@@ -196,7 +196,7 @@ public class UtilisateurDAO extends AbstractCRUD
 			requete = "select f_octroyer_droit "
 					+ "((select num_secu_employe "
 					  + "from employe "
-					  + "where pseudo = '" + employe.getPseudo() + "'), "
+					  + "where pseudo = '" + employe.getPseudo_utilisateur() + "'), "
 					 + "(select id_option "
 					  + "from option "
 					  + "where libelle_option = '" + LDroit.get(i) + "'))";
@@ -212,7 +212,7 @@ public class UtilisateurDAO extends AbstractCRUD
 	@Override
 	public List<String> getDroits(Utilisateur employe) {
 		// TODO Auto-generated method stub
-		Resultat reponse = this.getDroits(employe.getPseudo());
+		Resultat reponse = this.getDroits(employe.getPseudo_utilisateur());
 		
 		List<String> ldroits = new ArrayList<String>();
 		

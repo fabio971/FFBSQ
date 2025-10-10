@@ -113,8 +113,8 @@ public class VueConnexion extends AbstractVuePersonnalisable
 		// TODO Auto-generated method stub
 		
 		Utilisateur u = new Utilisateur();
-		u.setPseudo(this.pseudo.getText());
-		u.setMot_de_passe(new String(this.mdp.getPassword()));
+		u.setPseudo_utilisateur(this.pseudo.getText());
+		u.setMdp_utilisateur(new String(this.mdp.getPassword()));
 		
 		// On demande au controleur si la connexion a la BD a été faite avec succès
 		if (this.controler.connectionValid())

@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
+import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JDialog;
@@ -18,6 +19,8 @@ import org.xml.sax.SAXException;
 
 import Controler.Controleur;
 import Model.Classes.Autres.XML_POJO;
+import Model.Classes.Metiers.Employe;
+import Model.Classes.Metiers.TypeEmploye;
 
 
 /*
@@ -153,11 +156,10 @@ public abstract class AbstractVuePersonnalisable extends JDialog
 		{
 			while (source.next())
 			{
-				/*if (classeMetier instanceof Instrument)
-					list.add(new Instrument(source.getString("libelle_instrument")));
-				else if (classeMetier instanceof Utilisateur)
-					list.add(new Utilisateur(source.getString("nom"),
-							                 source.getString("prenom")));*/
+				if (classeMetier instanceof TypeEmploye)
+					list.add(new TypeEmploye(source.getInt("id_type_employe"),
+											 source.getString("libelle_type_employe")));
+				
 			}
 				
 		} catch (SQLException e) {
@@ -169,10 +171,39 @@ public abstract class AbstractVuePersonnalisable extends JDialog
 		
 		for (int i = 0; i < taille; i++)
 		{
-			/*if (classeMetier instanceof Instrument)
-				destination.addItem( ((Instrument) list.get(i)).getLibelle_instrument() );
-			else if (classeMetier instanceof Utilisateur)
-				destination.addItem( ((Utilisateur) list.get(i)).getNom() + ", " + ((Utilisateur) list.get(i)).getPrenom() );*/
+			if (classeMetier instanceof TypeEmploye)
+				destination.addItem( ((TypeEmploye) list.get(i)).getLibelle_type_employe() );
+		}
+	}
+	
+	protected void setValuesJL(ResultSet source, 
+							   DefaultListModel<String> listModel, 
+							   Object classeMetier)
+	{
+		ArrayList<Object> list = new ArrayList<Object>();
+		
+		try 
+		{
+			while (source.next())
+			{
+				if (classeMetier instanceof Employe)
+				{
+					Employe employe = new Employe("", source.getString("nom_utilisateur"), "", "", "", "", "", "");
+					list.add(employe);
+				}
+			}
+		
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		int taille = list.size();
+		
+		for (int i = 0; i < taille; i++)
+		{
+			if (classeMetier instanceof Employe)
+			listModel.addElement( ((Employe) list.get(i)).getNom_utilisateur() );
 		}
 	}
 	
