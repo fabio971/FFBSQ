@@ -40,7 +40,7 @@ public class VueCreerEmploye extends AbstractVuePersonnalisable {
 	private JPasswordField jpf_conf_mdp_utilisateur;
 	private JTextField jtf_tel_utilisateur;
 	private JTextField jtf_mail_utilisateur;
-	private JComboBox jcb_type_employe;
+	private JComboBox<String> jcb_type_employe;
 	
 	private JButton btn_enregistrer;
 	private JButton btn_annuler;
@@ -145,7 +145,7 @@ public class VueCreerEmploye extends AbstractVuePersonnalisable {
 		this.jtf_tel_utilisateur.setPreferredSize(new Dimension(200, 30));
 		this.jtf_mail_utilisateur = new JTextField();
 		this.jtf_mail_utilisateur.setPreferredSize(new Dimension(200, 30));
-		this.jcb_type_employe = new JComboBox();
+		this.jcb_type_employe = new JComboBox<String>();
 		
 		resultat = this.controler.select(new TypeEmploye());
 		
