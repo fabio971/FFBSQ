@@ -62,7 +62,10 @@ public class ConnectionDB {
 					     this.configuration.getSgdbr()+
 					     "://"+this.configuration.getHost()+
 					     ":"+this.configuration.getPort()+"/"+
-					     this.configuration.getDbname();
+					     this.configuration.getDbname()+"?useSSL=true&requireSSL=true&verifyServerCertificate=false"
+											           + "&enabledTLSProtocols=TLSv1.2"
+											           + "&trustCertificateKeyStoreUrl=file:/Users/fabiancisnerosbridon/certs/mysql-truststore.jks"
+											           + "&trustCertificateKeyStorePassword=changeit";
 			
 			System.out.println("E t a b i s s a n t   u n e   c o n n e x i o n   v e r s  :  " + url);
 			
