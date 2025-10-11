@@ -48,8 +48,8 @@ public class ConfigurationDB {
 		//this.host = "192.168.159.157";
 		this.host = "192.168.64.4";
 		this.dbname = "FFBSQ";
-		this.user = "user_web";
-		this.password = "uw:971!";
+		this.user = "user_web_secure";
+		this.password = "uws:971!";
 		this.port = "3306";
 	}
 
