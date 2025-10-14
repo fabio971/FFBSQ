@@ -46,7 +46,7 @@ public class ConfigurationDB {
 		//this.host = "192.168.0.33";
 		//this.host = "172.16.100.100";
 		//this.host = "192.168.159.157";
-		this.host = "192.168.64.4";
+		this.host = "debian-serveurbdd";
 		this.dbname = "FFBSQ";
 		this.user = "user_web_secure";
 		this.password = "uws:971!";
