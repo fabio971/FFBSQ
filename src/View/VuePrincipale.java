@@ -16,6 +16,7 @@ import Model.Classes.Systeme.Session;
 import Model.Interfaces.Observer.InterfObservateur;
 import View.Admin.VueCreerEmploye;
 import View.Admin.VueListerEmployes;
+import View.Competition.VueCreerCompetition;
 
 /*
  * Vue principal qui contient un menu et un controler.
@@ -259,6 +260,14 @@ public class VuePrincipale extends JFrame
 			new VueListerEmployes(null, 
 			         new Dimension(610, 390), 
 			         "Lister employés (Mis à jour et suppression)", 
+			         true, 
+			         this.controler);
+		}
+		else if (e.getActionCommand().equals("Créer Cp."))
+		{
+			new VueCreerCompetition(null, 
+			         new Dimension(300, 380), 
+			         "Créer une compétition", 
 			         true, 
 			         this.controler);
 		}
